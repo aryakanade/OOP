@@ -1,0 +1,20 @@
+class Person:
+    def __init__(self,name,id):
+        self.name = name
+        self.id = id
+        
+    def getDetails(self):
+        return self.name, self.id
+    
+    def isEmployee(self):
+        return False
+
+class Employee(Person):
+    def isEmployee(self):
+        return True
+        
+emp = Person('Geek1',101)
+print(emp.getDetails(),emp.isEmployee())
+
+emp = Employee('Geek2',102)
+print(emp.getDetails(),emp.isEmployee())
