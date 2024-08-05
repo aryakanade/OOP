@@ -18,3 +18,41 @@ print(emp.getDetails(),emp.isEmployee())
 
 emp = Employee('Geek2',102)
 print(emp.getDetails(),emp.isEmployee())
+
+
+#subclassing
+class Person:
+    def __init__(self,name,id):
+        self.name = name
+        self.id = id
+        
+    def display(self):
+        print(self.name)
+        print(self.id)
+        
+    
+class Employee(Person):
+    def __init__(self,name,id,salary,post):
+        self.salary = salary
+        self.post = post
+        
+        #invoking the constructor of parent class
+        Person.__init__(self,name,id)
+        
+a = Employee('Arya',101,10000,'Intern')
+a.display()
+
+
+#error will be given as parent constructor is not invoked
+class A:
+    def __init__(self,name):
+        self.name = name
+
+class B(A):
+    def __init__(self, name,roll):
+        self.roll = roll
+        
+        #A.__init__(self,name)
+
+object = B('Arya',10)
+print(object.name)
